@@ -12,12 +12,12 @@ var gen_bar = jade.compile([
     '      span.divider /',
     '  - else',
     '    li.active(data-path="#{item.path}")',
-    '      a(href="#") #{item.name}',
+    '      a(href="#") #{item.name}'
 ].join('\n'));
 
 var gen_one_file = jade.compile([
     'li(data-path="#{path}")',
-    '  a(href="#") #{name}',
+    '  a(href="#") #{name}'
 ].join('\n'));
 
 // Our real type
@@ -50,20 +50,17 @@ AddressBar.prototype.set = function(dir_path) {
   for (; i < sequence.length; ++i) {
     result.push({
       name: sequence[i],
-      path: sequence.slice(0, 1 + i).join(path.sep),
+      path: sequence.slice(0, 1 + i).join(path.sep)
     });
   }
 
   // Add root for *nix
   if (sequence[0] == '' && process.platform != 'win32') {
-    result[0] = {
-      name: 'root',
-      path: '/',
-    };
+      result.shift();
   }
 
   this.element.html(gen_bar({ sequence: result }));
-}
+};
 
 AddressBar.prototype.enter = function(dir) {
   // Where is current
@@ -79,6 +76,6 @@ AddressBar.prototype.enter = function(dir) {
   // Add new folder
   this.element.append(gen_one_file({ path: dir, name: path.basename(dir) }));
   this.element.find('a:last').trigger('click');
-}
+};
 
 exports.AddressBar = AddressBar;

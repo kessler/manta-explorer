@@ -6,9 +6,9 @@ console.log(config);
 var client = manta.createClient({
     sign: manta.cliSigner(config.sign),
     user: config.user,
-    url: config.url
+    url: config.url,
+    key: config.sign.key
 });
-
 // console.log('manta ready: %s', client.toString());
 
 // client.on('listening', function() {

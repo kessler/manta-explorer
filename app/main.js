@@ -10,8 +10,8 @@ $(document).ready(function() {
   var folder = new folder_view.Folder($('#files'));
   var addressbar = new abar.AddressBar($('#addressbar'));
 
-  folder.open('/' + config.user + '/public');
-  addressbar.set('/' + config.user + '/public');
+  folder.open('/' + config.user);
+  addressbar.set('/' + config.user);
 
   folder.on('navigate', function(dir, type) {
 
