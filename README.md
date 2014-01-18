@@ -28,7 +28,3 @@ grunt run
 ```
 grunt pack
 ```
-
-TODO:
-build and run only supported on windows atm, adding support for other os should be trivial
-fix configuration
